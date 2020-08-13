@@ -12,23 +12,24 @@ Then download the binary, make it executable and run it:
 
 (example)
 ```
-wget https://raw.githubusercontent.com/martinkaptein/atc/master/binaries/atc_osx_x64
+wget https://raw.githubusercontent.com/martinkaptein/atc/master/binaries/atc_macOS-64bit
 chmod +x atc_osx_x64
-./atc_osx_x64
+./atc_macOS-64bit
 ```
  
 Alternatively place it in your path to run it everywhere from the terminal:
 ```
-cp atc_osx_x64 /usr/local/bin/atc
+cp atc_macOS-64bit /usr/local/bin/atc
 ```
 
-*Subsitute atc_osx_x64 with your binary name.*
+*Subsitute atc_macOS-64bit with your binary name according to your platform.*
 
 Now you can run it by just typing `atc` in the terminal.
 
 If any of the commands don't work, put a `sudo` before.
+Keep in mind that the binary builds may be outdated, for latest features please compile.
 
-## Building
+## Building and compiling
 
 Install golang for your platform from [the Golang website](https://golang.org/).
 
