@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	termbox "github.com/nsf/termbox-go"
 	"os"
@@ -359,24 +360,27 @@ func main() {
 
 	usage := func() {
 		termbox.Close()
-		fmt.Println("usage: atc [time [planes]]")
+		fmt.Println("usage: atc [-time N] [-planes N]")
 		os.Exit(1)
 	}
 
-	num_planes := 26
-	switch len(os.Args) {
-	case 3:
-		num_planes, err = strconv.Atoi(os.Args[2])
-		if err != nil {
-			usage()
-		}
-		fallthrough
-	case 2:
-		time, err := strconv.Atoi(os.Args[1])
-		if err != nil {
-			usage()
-		}
+	num_planes_str := flag.String("planes", "26", "max. number of concurrent planes")
+	time_str := flag.String("time", "16", "game time in minutes")
+	flag.Parse()
 
+	time, err := strconv.Atoi(*time_str)
+	if err != nil {
+		usage()
+	}
+
+	num_planes, err := strconv.Atoi(*num_planes_str)
+	if err != nil {
+		usage()
+	}
+
+	if len(os.Args) > 5 {
+		usage()
+	} else if len(os.Args) > 1 {
 		time = Max(time, 16) // minimum 16 minutes
 		diff := &Difficulty{
 			duration:   Ticks(time) * Minutes,
@@ -384,9 +388,7 @@ func main() {
 		}
 		seed := RandSeed()
 		RunGame(&ATC_ORIGINAL_RULES, DEFAULT_BOARD, diff, seed)
-	case 1:
+	} else {
 		MainMenu()
-	default:
-		usage()
 	}
 }
