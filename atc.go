@@ -168,7 +168,7 @@ func RunGame(rules *GameRules, board *Board, diff *Difficulty, seed int64) {
 
 func MainMenu() {
 	rules := &DEFAULT_RULES
-	board := BOARDS[0]
+	board := DEFAULT_BOARD
 	diff := DIFFICULTIES[0]
 
 	active := 0
@@ -387,7 +387,7 @@ func main() {
 			num_planes: num_planes,
 		}
 		seed := RandSeed()
-		RunGame(&ATC_ORIGINAL_RULES, BOARDS[0], diff, seed)
+		RunGame(&ATC_ORIGINAL_RULES, DEFAULT_BOARD, diff, seed)
 	} else {
 		MainMenu()
 	}

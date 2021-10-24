@@ -19,6 +19,7 @@ var (
 	}
 
 	BOARDS []*Board = LoadBoards("games/*.json")
+	DEFAULT_BOARD *Board = BOARDS[0]
 )
 
 type Board struct {
