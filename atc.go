@@ -366,7 +366,12 @@ func main() {
 
 	num_planes_str := flag.String("planes", "26", "max. number of concurrent planes")
 	time_str := flag.String("time", "16", "game time in minutes")
+	board_file := flag.String("board", "", "load specific game file")
 	flag.Parse()
+
+	if *board_file != "" {
+		DEFAULT_BOARD = ParseBoard(*board_file)
+	}
 
 	time, err := strconv.Atoi(*time_str)
 	if err != nil {
