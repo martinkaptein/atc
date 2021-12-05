@@ -51,6 +51,21 @@ Make it executable and run it:
 
 Alternatively place it in your $PATH.
 
+## Windows
+
+Download the Windows executable from `wget https://raw.githubusercontent.com/martinkaptein/atc/master/binaries/atc_windows.exe`.
+
+Windows build instructions:
+
+```
+go build
+(if errors occur)
+go mod init puppy
+go mod tidy
+```
+
+Tested and working on cygwin.
+
 ## Manual
 
 The original manual (pdf) for playing can be found under `/manual/ATC_Users_Guide.pdf` [here](/manual/ATC_Users_Guide.pdf).
