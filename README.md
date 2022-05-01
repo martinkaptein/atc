@@ -4,6 +4,8 @@ This is a fork of [ndecker/atc](https://github.com/ndecker/atc), which is itself
 
 ## Installation
 
+[Download the binary here](https://github.com/martinkaptein/atc/releases/tag/v1)
+
 ### Instructions for MacOS and Linux
 
 In order to use the provided binaries, find the binary of your choice inside [/binaries](/binaries).
